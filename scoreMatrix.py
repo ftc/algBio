@@ -43,10 +43,26 @@ class scoreMatrix:
 			raise Exception('RuntimeException','Amino acid invalidated')
 		self.mat[x][y] = score
 
-	#TODO: set invalid amino acid
-
-	#TODO: make fwrite
-	#TODO: make fread
-		
-
-
+	def setInvalid(self,v):
+		try:
+			x = self.indexLookup[v]
+		except KeyError:
+			raise Excpetion('RuntimeException', 'Amino acid not defined')
+		for i in xrange(len(aminoListChr)):
+			self.mat[i][x] = 'i'
+		for i in xrange(len(aminoListChr)):
+			self.mat[x][i] = 'i'
+			
+	def fwrite(self, fname):
+		f = open(fname,'w')
+		for i in self.mat:
+			line = ""
+			for j in i:
+				line += str(j) + ","
+			f.write(line[0:-1] + '\n')
+	def fread(self, fname):
+		f = open(fname,'r')
+		self.mat = []
+		for i in f:
+			self.mat.append(i.split(','))
+			print self.mat
