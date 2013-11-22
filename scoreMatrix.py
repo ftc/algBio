@@ -27,9 +27,23 @@ class scoreMatrix:
 			raise Exception('RuntimeException','Amino acid not defined')
 		if(self.mat[x][y] == 'u'):
 			raise Exception('RuntimeException','Uninitialized amino acid pair')
+		if(self.mat[x][y] == 'i'):
+			raise Exception('RuntimeException','Amino acid invalidated')
 		else:
 			return self.mat[x][y]
-	#TODO: figure out aa invalidation
+	def set(self,v1,v2, score):
+		v1p = v1 if ord(v1)<ord(v2) else v2
+		v2p = v1 if ord(v1)>=ord(v2) else v2
+		try:
+			x = self.indexLookup[v1p]
+			y = self.indexLookup[v2p]
+		except KeyError:
+			raise Exception('RuntimeException','Amino acid not defined')
+		if(self.mat[x][y] == 'i'):
+			raise Exception('RuntimeException','Amino acid invalidated')
+		self.mat[x][y] = score
+
+	#TODO: set invalid amino acid
 
 	#TODO: make fwrite
 	#TODO: make fread
