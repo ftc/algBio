@@ -29,6 +29,7 @@ class scoreMatrix:
 			raise Exception('RuntimeException','Uninitialized amino acid pair')
 		else:
 			return self.mat[x][y]
+	#TODO: figure out aa invalidation
 
 	#TODO: make fwrite
 	#TODO: make fread
