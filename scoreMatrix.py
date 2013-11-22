@@ -10,7 +10,9 @@ class scoreMatrix:
 			for i in xrange(22):
 				r.append('u') #initialize with 'u' for uninitialized
 			self.mat.append(r)
-		#TODO: make index lookup
+		self.indexLookup = {}
+		for i in xrange(len(aminoListChr)):
+			self.indexLookup[aminoListChr[i]] = i
 	def printMatrix(self):
 		for i in self.mat:
 			print i
