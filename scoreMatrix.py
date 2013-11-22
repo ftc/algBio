@@ -17,7 +17,7 @@ class scoreMatrix:
 		for i in self.mat:
 			print i
 	def get(self, v1, v2):
-		#make sure v1p is always lower or equal to v2p, this enforces non duplication of data
+		#make sure v1p is always lower or equal to v2p
 		v1p = v1 if ord(v1)<ord(v2) else v2
 		v2p = v1 if ord(v1)>=ord(v2) else v2
 		try:
@@ -64,5 +64,4 @@ class scoreMatrix:
 		f = open(fname,'r')
 		self.mat = []
 		for i in f:
-			self.mat.append(i.split(','))
-			print self.mat
+			self.mat.append(i.strip().split(','))
