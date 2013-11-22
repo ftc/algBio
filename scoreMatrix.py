@@ -20,7 +20,15 @@ class scoreMatrix:
 		#make sure v1p is always lower or equal to v2p, this enforces non duplication of data
 		v1p = v1 if ord(v1)<ord(v2) else v2
 		v2p = v1 if ord(v1)>=ord(v2) else v2
-		#TODO: finish after index lookup is done
+		try:
+			x = self.indexLookup[v1p]
+			y = self.indexLookup[v2p]
+		except KeyError:
+			raise Exception('RuntimeException','Amino acid not defined')
+		if(self.mat[x][y] == 'u'):
+			raise Exception('RuntimeException','Uninitialized amino acid pair')
+		else:
+			return self.mat[x][y]
 
 	#TODO: make fwrite
 	#TODO: make fread
