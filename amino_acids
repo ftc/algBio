@@ -1,22 +1,22 @@
-A Alanine
-R Arginine
-N Asparagine
-D Aspartic_acid
-C Cysteine
-E Glutamic_acid
-Q Glutamine
-G Glycine
-H Histidine
-I Isoleucine
-L Leucine
-K Lysine
-M Methionine
-F Phenylalanine
-P Proline
-S Serine
-T Threonine
-W Tryptophan
-Y Tyrosine
-V Valine
-U Selenocysteine
-O Pyrrolysine
+A Alanine n 1.8
+R Arginine + -4.5
+N Asparagine n -3.5
+D Aspartic_acid - -3.5
+C Cysteine n 2.5
+E Glutamic_acid - -3.5
+Q Glutamine n -3.5
+G Glycine n -0.4
+H Histidine + -3.2
+I Isoleucine n 4.5
+L Leucine n 3.8
+K Lysine + -3.9
+M Methionine n 1.9
+F Phenylalanine n 2.8
+P Proline n -1.6
+S Serine n -0.8
+T Threonine n -0.7
+W Tryptophan n -0.9
+Y Tyrosine n -1.3
+V Valine n 4.2
+U Selenocysteine n 0.0
+O Pyrrolysine n 0.0
