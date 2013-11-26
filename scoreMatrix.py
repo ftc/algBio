@@ -2,7 +2,7 @@ import amino
 
 aminoListChr = amino.getOrderedArray()
 
-class scoreMatrix:
+class ScoreMatrix:
 	def __init__(self):
 		self.mat = []
 		for i in xrange(22):
