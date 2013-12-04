@@ -12,6 +12,15 @@ scoreMatrix = s.ScoreMatrix()
 tol = 0.001 #tolerance for comparing polarity of amino acids
 cmpF = lambda x,y: abs(x - y) < tol
 
+#calculate maximum hydrophilic
+mxPhil = 0.0
+for i in aminoHydrop:
+	if aminoHydrop[i] < mxPhil:
+		mxPhil = aminoHydrop[i]
+pMxPhil = -mxPhil
+if(pMxPhil <0):
+	raise RuntimeWarning
+
 def calcScore(aa1, aa2, hWeight, pWeight):
 	return hWeight*calcHydropScore(aa1, aa2) + pWeight*calcPolScore(aa1, aa2)
 	
@@ -36,10 +45,13 @@ def calcHydropScore(aa1, aa2):
 	s2 = copysign(1,hy2)
 	if(cmpF(hy1,0) or cmpF(hy2,0)):
 		return 0 #no data is assumed for a score of 0
-	if(s1 == s2):
-		return 1 #TODO:
-	if(s1 != s2):
-		return -1 #TODO:
+	if(s1 == -1 and s2 == -1):
+		#mxPhil
+		avg = (hy1 + hy2)/2
+		score = abs(avg)/pMxPhil
+		return score*0.3 + 0.1 #return score between 0.1 and 0.4
+	else:
+		return 0
 
 
 
