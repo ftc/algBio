@@ -1,0 +1,8 @@
+1 human
+2 Mouse
+3 Bos taurus (Bovine)
+4 Chicken
+5 Rat
+6 Caenorhabditis elegans
+7 Fruit Fly
+8 yeast
