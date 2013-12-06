@@ -24,7 +24,7 @@ class ScoreMatrix:
 			x = self.indexLookup[v1p]
 			y = self.indexLookup[v2p]
 		except KeyError:
-			raise Exception('RuntimeException','Amino acid not defined')
+			raise Exception('RuntimeException','Amino acid not defined '+ v1 + ' or ' + v2)
 		if(self.mat[x][y] == 'u'):
 			raise Exception('RuntimeException','Uninitialized amino acid pair')
 		if(self.mat[x][y] == 'i'):
