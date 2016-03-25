@@ -25,7 +25,6 @@ def calcScore(aa1, aa2, hWeight, pWeight):
 	return hWeight*calcHydropScore(aa1, aa2) + pWeight*calcPolScore(aa1, aa2)
 	
 
-#TODO: verify plausibility
 def calcPolScore(aa1, aa2):
 	pol1 = aminoPolarity[aa1]
 	pol2 = aminoPolarity[aa2]

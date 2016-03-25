@@ -3,8 +3,6 @@ import amino
 import pseudoScore
 import sys
 
-#Note: this code could be improved with dynamic programming
-#however the runtime for this project is low and I am lazy
 
 #alpha unit can have gaps on beginning but not in the middle
 
@@ -17,8 +15,10 @@ scm = pseudoScore.getScoreMatrix(0.5,0.5)
 #returns: (score, rptprime, alpprime)
 def calcGap(rpt, alp):
 	#calculates all possibility where alph begins with gap
-	#Note: no base cases here, they are handled by calcRptGap
-	wgap = calcGap(rpt[1:], alp)
+	if(rpt != ""):
+		wgap = calcGap(rpt[1:], alp)
+	else:
+		wgap = (0, "-"*len(alp), alp)
 	ngap = calcRptGap(rpt, alp)
 	wgapScore = wgap[0]
 	ngapScore = ngap[0]
@@ -26,10 +26,10 @@ def calcGap(rpt, alp):
 		return ngap
 	else:
 		return (wgapScore+alpGapPen, '-' + wgap[1], rpt[0] + wgap[2])
+#calculates possibilities after initial gap in alpha
+#define base cases
+#gap penalty is assessed for ending gap too
 def calcRptGap(rpt,alp):
-	#calculates possibilities after initial gap in alpha
-	#define base cases
-	#gap penalty is assessed for ending gap too
 	if(rpt == ""):
 		return (len(alp)*rptGapPen, "-"*len(alp), alp)
 	if(alp == ""):
